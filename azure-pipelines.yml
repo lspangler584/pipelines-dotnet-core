@@ -32,11 +32,13 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-- task: ArchiveFiles@2
+- task: AzureWebApp@1
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)'
-    includeRootFolder: true
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
-    verbose: true
+    azureSubscription: 'PipelineServiceConnection'
+    appType: 'webApp'
+    appName: 'pipelines-dotnet-core20201110153640'
+    deployToSlotOrASE: true
+    resourceGroupName: 'LSResourceGroup'
+    slotName: 'production'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
