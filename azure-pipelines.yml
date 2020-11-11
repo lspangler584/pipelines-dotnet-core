@@ -39,6 +39,12 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
+- task: AzureAppServiceManage@0
+  displayName: 'Install Extensions: pipelines-dotnet-core20201110153640'
+  inputs:
+    azureSubscription: 'PipelineServiceConnection'
+    Action: 'Install Extensions'
+    WebAppName: 'pipelines-dotnet-core20201110153640'
 
 - task: AzureRmWebAppDeployment@4
   inputs:
