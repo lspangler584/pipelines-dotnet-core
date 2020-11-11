@@ -32,3 +32,9 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'PipelineServiceConnection'
+    appName: 'pipelines-dotnet-core20201110153640'
+    package: $(System.DefaultWorkingDirectory)/**/*.zip    
