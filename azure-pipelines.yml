@@ -44,7 +44,7 @@ steps:
   inputs:
     azureSubscription: 'PipelineServiceConnection'
     Action: 'Install Extensions'
-    WebAppName: 'pipelines-dotnet-core20201110153640'
+    WebAppName: 'pipelines-dotnet-core20201112165034'
     ExtensionsList: NewRelic.Azure.WebSites.Extension
 
 - task: AzureRmWebAppDeployment@4
