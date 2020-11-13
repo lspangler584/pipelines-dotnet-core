@@ -39,6 +39,14 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your PowerShell commands here.
+      
+      Remove-AzureRmVMExtension -ResourceGroupName "LSResourceGroup" -Name "NewRelic.Azure.WebSites.Extension"
+    pwsh: true
 - task: AzureAppServiceManage@0
   displayName: 'Install Extensions: pipelines-dotnet-core20201112165034'
   inputs:
