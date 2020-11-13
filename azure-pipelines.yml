@@ -40,7 +40,7 @@ steps:
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
 - task: AzureAppServiceManage@0
-  displayName: 'Install Extensions: pipelines-dotnet-core20201110153640'
+  displayName: 'Install Extensions: pipelines-dotnet-core20201112165034'
   inputs:
     azureSubscription: 'PipelineServiceConnection'
     Action: 'Install Extensions'
@@ -52,7 +52,7 @@ steps:
     ConnectionType: 'AzureRM'
     azureSubscription: 'PipelineServiceConnection'
     appType: 'webApp'
-    WebAppName: 'pipelines-dotnet-core20201110153640'
+    WebAppName: 'pipelines-dotnet-core20201112165034'
     deployToSlotOrASE: true
     ResourceGroupName: 'LSResourceGroup'
     SlotName: 'production'
