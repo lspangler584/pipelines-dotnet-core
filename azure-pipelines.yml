@@ -40,14 +40,6 @@ steps:
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
       
-- task: AzureAppServiceManage@0
-  displayName: 'Install Extensions: pipelines-dotnet-core20201112185049'
-  inputs:
-    azureSubscription: 'PipelineServiceConnection'
-    Action: 'Install Extensions'
-    WebAppName: 'pipelines-dotnet-core20201112185049'
-    ExtensionsList: NewRelic.Azure.WebSites.Extension
-
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
@@ -60,7 +52,14 @@ steps:
     packageForLinux: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     enableCustomDeployment: true
     DeploymentType: 'webDeploy'
-    ExcludeFilesFromAppDataFlag: true
+    RemoveAdditionalFilesFlag: true
 
+- task: AzureAppServiceManage@0
+  displayName: 'Install Extensions: pipelines-dotnet-core20201112185049'
+  inputs:
+    azureSubscription: 'PipelineServiceConnection'
+    Action: 'Install Extensions'
+    WebAppName: 'pipelines-dotnet-core20201112185049'
+    ExtensionsList: NewRelic.Azure.WebSites.Extension
 
 
