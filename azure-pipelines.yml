@@ -44,7 +44,7 @@ steps:
   inputs:
     azureSubscription: 'PipelineServiceConnection'
     ScriptType: 'InlineScript'
-    Inline: 'Remove-AzureRmVMExtension -ResourceGroupName "LSResourceGroup" -Name "NewRelic.Azure.WebSites.Extension"'
+    Inline: 'Remove-AzureVMExtension -ExtensionName "NewRelic.Azure.WebSites.Extension"'
     errorActionPreference: 'continue'
     azurePowerShellVersion: 'LatestVersion'
     pwsh: true
