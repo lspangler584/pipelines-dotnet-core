@@ -62,4 +62,3 @@ steps:
     RemoveAdditionalFilesFlag: true
     ExcludeFilesFromAppDataFlag: false
 
-
