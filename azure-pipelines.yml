@@ -41,11 +41,11 @@ steps:
     replaceExistingArchive: true
       
 - task: AzureAppServiceManage@0
-  displayName: 'Install Extensions: pipelines-dotnet-core20201112165034'
+  displayName: 'Install Extensions: pipelines-dotnet-core20201112185049'
   inputs:
     azureSubscription: 'PipelineServiceConnection'
     Action: 'Install Extensions'
-    WebAppName: 'pipelines-dotnet-core20201112165034'
+    WebAppName: 'pipelines-dotnet-core20201112185049'
     ExtensionsList: NewRelic.Azure.WebSites.Extension
 
 - task: AzureRmWebAppDeployment@4
@@ -53,7 +53,7 @@ steps:
     ConnectionType: 'AzureRM'
     azureSubscription: 'PipelineServiceConnection'
     appType: 'webApp'
-    WebAppName: 'pipelines-dotnet-core20201112165034'
+    WebAppName: 'pipelines-dotnet-core20201112185049'
     deployToSlotOrASE: true
     ResourceGroupName: 'LSResourceGroup'
     SlotName: 'production'
