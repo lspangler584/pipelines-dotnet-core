@@ -60,5 +60,6 @@ steps:
     enableCustomDeployment: true
     DeploymentType: 'webDeploy'
     RemoveAdditionalFilesFlag: true
+    ExcludeFilesFromAppDataFlag: false
 
 
