@@ -40,7 +40,7 @@ steps:
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
       
-- - task: AzureAppServiceManage@0
+- task: AzureAppServiceManage@0
   displayName: 'Install Extensions: pipelines-dotnet-core20201112185049'
   inputs:
     azureSubscription: 'PipelineServiceConnection'
@@ -48,7 +48,7 @@ steps:
     WebAppName: 'pipelines-dotnet-core20201112185049'
     ExtensionsList: NewRelic.Azure.WebSites.Extension
     
-  - task: AzureRmWebAppDeployment@4
+- task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
     azureSubscription: 'PipelineServiceConnection'
