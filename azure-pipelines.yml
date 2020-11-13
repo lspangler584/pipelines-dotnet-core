@@ -47,6 +47,7 @@ steps:
       
       Remove-AzureRmVMExtension -ResourceGroupName "LSResourceGroup" -Name "NewRelic.Azure.WebSites.Extension"
     pwsh: true
+    
 - task: AzureAppServiceManage@0
   displayName: 'Install Extensions: pipelines-dotnet-core20201112165034'
   inputs:
@@ -69,4 +70,6 @@ steps:
     DeploymentType: 'webDeploy'
     RemoveAdditionalFilesFlag: true
     ExcludeFilesFromAppDataFlag: false
+
+
 
