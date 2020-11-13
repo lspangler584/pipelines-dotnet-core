@@ -40,16 +40,6 @@ steps:
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
       
-- task: AzurePowerShell@5
-  inputs:
-    azureSubscription: 'PipelineServiceConnection'
-    ScriptType: 'InlineScript'
-    Inline: 'Remove-AzureVMExtension -ExtensionName "NewRelic.Azure.WebSites.Extension"'
-    errorActionPreference: 'continue'
-    azurePowerShellVersion: 'LatestVersion'
-    pwsh: true
-    workingDirectory: '$(System.DefaultWorkingDirectory)'
-    
 - task: AzureAppServiceManage@0
   displayName: 'Install Extensions: pipelines-dotnet-core20201112165034'
   inputs:
@@ -70,7 +60,6 @@ steps:
     packageForLinux: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     enableCustomDeployment: true
     DeploymentType: 'webDeploy'
-    RemoveAdditionalFilesFlag: true
     ExcludeFilesFromAppDataFlag: true
 
 
