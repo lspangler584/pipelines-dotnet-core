@@ -60,7 +60,8 @@ steps:
     packageForLinux: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     enableCustomDeployment: true
     DeploymentType: 'webDeploy'
-    ExcludeFilesFromAppDataFlag: true
+    ExcludeFilesFromAppDataFlag: false
+    AdditionalArguments: '-retryAttempts:6 -retryInterval:10000 -skip:skipAction=Delete,objectName=dirPath,absolutePath=''newrelic$'' -skip:skipAction=Delete,objectName=dirPath,absolutePath=''newrelic_core$'''
 
 
 
